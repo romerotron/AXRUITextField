@@ -24,16 +24,14 @@ class AXRUITextField: UITextField,  UITextFieldDelegate {
         setProperties()
     }
 
-    // Custom initializer with BOOL for AutoLayout
-    init(frame: CGRect, autoLayout: ObjCBool){
-        super.init(frame: frame)
-        delegate = self
-        
+    // Convenience initializer with BOOL for AutoLayout
+    convenience init(frame: CGRect, autoLayout: ObjCBool){
+        self.init(frame: frame)
+
         if autoLayout.boolValue {
             self.translatesAutoresizingMaskIntoConstraints = false
         }
-        
-        setProperties()
+
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
